@@ -9,7 +9,6 @@
     android:gravity="center"
     >
 
-    <!-- change android:text -->
     <TextView
         android:id="@+id/top_text"
         android:layout_width="match_parent"
@@ -101,12 +100,13 @@
                 style="@style/input_box"
                 app:placeholderText="test">
 
+                <!-- use hint to display text in text input -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="@dimen/inputbox_width"
                     android:focusable="false"
-                    android:hint="wor"
                     android:background="@color/gray"
                     style="@style/output_text"
+                    android:hint="-"
                     android:layout_height="@dimen/text_input_height" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -131,14 +131,13 @@
                 style="@style/input_box"
                 app:placeholderText="test">
 
-                <!-- use hint to display text in text input -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="@dimen/inputbox_width"
                     android:focusable="false"
                     android:layout_height="@dimen/text_input_height"
                     style="@style/output_text"
-                    android:background="@color/green"
-                    android:hint="hello"
+                    android:background="@color/gray"
+                    android:hint="-"
                     />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
