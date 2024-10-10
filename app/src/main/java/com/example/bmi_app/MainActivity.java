@@ -58,25 +58,25 @@ public class MainActivity extends AppCompatActivity {
 
                 // Determine BMI category and set message and color
                 String resultMessage;
-                int color;
+                int backgroundColor;
 
 
                 if (bmi < 18.5) {
                     resultMessage = getString(R.string.underweight);
-                    color = ContextCompat.getColor(MainActivity.this, R.color.red_underweight);
+                    backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.red_underweight);
                 } else if (bmi < 24.9) {
                     resultMessage = getString(R.string.normal_weight);
-                    color = ContextCompat.getColor(MainActivity.this, R.color.green);
+                    backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.green);
                 } else if (bmi < 29.9) {
                     resultMessage = getString(R.string.overweight);
-                    color = ContextCompat.getColor(MainActivity.this, R.color.yellow);
+                    backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.yellow);
                 } else {
                     resultMessage = getString(R.string.obesity);
-                    color = ContextCompat.getColor(MainActivity.this, R.color.red_overweight);
+                    backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.red_overweight);
                 }
 
                 resultTextView.setText(resultMessage);
-                resultTextView.setTextColor(color);
+                resultTextView.setBackgroundColor(backgroundColor);
 
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
