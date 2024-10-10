@@ -109,6 +109,7 @@
                     android:layout_height="@dimen/text_input_height"
                     android:background="@color/gray"
                     android:focusable="false"
+                    android:textColor="@color/hoki"
                     tools:ignore="DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -139,7 +140,8 @@
                     android:layout_width="@dimen/inputbox_width"
                     android:layout_height="@dimen/text_input_height"
                     android:background="@color/gray"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </LinearLayout>
