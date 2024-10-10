@@ -7,6 +7,8 @@
     <string name="bmi_category_hint">Result</string>
     <string name="calculate">Calculate</string>
     <string name="empty_input">Please enter weight and height.</string>
+    <string name="height_zero">Height must not be 0.</string>
+    <string name="invalid_input">Invalid Input</string>
     <string name="underweight">Underweight</string>
     <string name="normal_weight">Normal weight</string>
     <string name="overweight">Overweight</string>

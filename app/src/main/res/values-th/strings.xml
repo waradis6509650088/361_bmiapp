@@ -7,6 +7,8 @@
     <string name="bmi_category_hint">อยู่ในเกณฑ์</string>
     <string name="calculate">คำนวณ</string>
     <string name="empty_input">กรุณากรอกน้ำหนักและส่วนสูง</string>
+    <string name="height_zero">ส่วงสูงต้องไม่เป็น 0</string>
+    <string name="invalid_input">ข้อมูลรับเข้าไม่ถูกต้อง</string>
     <string name="underweight">น้ำหนักต่ำกว่าเกณฑ์</string>
     <string name="normal_weight">น้ำหนักปกติ</string>
     <string name="overweight">น้ำหนักเกิน</string>

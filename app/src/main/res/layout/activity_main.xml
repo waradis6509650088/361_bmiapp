@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -40,13 +40,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_weight"
+                    style="@style/input_box_editText"
                     android:layout_width="@dimen/inputbox_width"
                     android:layout_height="@dimen/text_input_height"
                     android:inputType="numberDecimal"
-                    style="@style/input_box_editText"
-                    />
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -68,13 +69,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_height"
+                    style="@style/input_box_editText"
                     android:layout_width="@dimen/inputbox_width"
                     android:layout_height="@dimen/text_input_height"
-                    style="@style/input_box_editText"
                     android:inputType="numberDecimal"
-                    />
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -101,12 +103,13 @@
 
                 <!-- use hint to display text in text input -->
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="@dimen/inputbox_width"
-                    android:focusable="false"
-                    android:background="@color/gray"
+                    android:id="@+id/output_bmi"
                     style="@style/output_text"
-                    android:hint="-"
-                    android:layout_height="@dimen/text_input_height" />
+                    android:layout_width="@dimen/inputbox_width"
+                    android:layout_height="@dimen/text_input_height"
+                    android:background="@color/gray"
+                    android:focusable="false"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <LinearLayout
@@ -131,13 +134,12 @@
                 app:placeholderText="test">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="@dimen/inputbox_width"
-                    android:focusable="false"
-                    android:layout_height="@dimen/text_input_height"
+                    android:id="@+id/result"
                     style="@style/output_text"
+                    android:layout_width="@dimen/inputbox_width"
+                    android:layout_height="@dimen/text_input_height"
                     android:background="@color/gray"
-                    android:hint="-"
-                    />
+                    android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </LinearLayout>
