@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BMI-app</string>
+    <string name="bmi_title">Body Mass Index Calculator</string>
+    <string name="weight_hint">Weight (kg)</string>
+    <string name="height_hint">Height (cm)</string>
+    <string name="bmi_result_hint">Your BMI is</string>
+    <string name="bmi_category_hint">Result</string>
+    <string name="calculate">Calculate</string>
+    <string name="empty_input">Please enter weight and height.</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal_weight">Normal weight</string>
+    <string name="overweight">Overweight</string>
+    <string name="obesity">Obesity</string>
 </resources>

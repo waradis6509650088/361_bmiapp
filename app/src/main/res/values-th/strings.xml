@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BMI-app</string>
+    <string name="bmi_title">ค่าดัชนีมวลกาย</string>
+    <string name="weight_hint">น้ำหนัก (กิโลกรัม)</string>
+    <string name="height_hint">ส่วนสูง (เซนติเมตร)</string>
+    <string name="bmi_result_hint">ค่าดัชนีมวลกาย</string>
+    <string name="bmi_category_hint">อยู่ในเกณฑ์</string>
+    <string name="calculate">คำนวณ</string>
+    <string name="empty_input">กรุณากรอกน้ำหนักและส่วนสูง</string>
+    <string name="underweight">น้ำหนักต่ำกว่าเกณฑ์</string>
+    <string name="normal_weight">น้ำหนักปกติ</string>
+    <string name="overweight">น้ำหนักเกิน</string>
+    <string name="obesity">โรคอ้วน</string>
+</resources>

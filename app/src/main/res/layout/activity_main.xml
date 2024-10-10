@@ -14,9 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/app_title_textsize"
-        android:text="BMI APP"
-        />
+        android:text="@string/bmi_title"
+        android:textSize="@dimen/app_title_textsize" />
 
     <LinearLayout
         android:id="@+id/body"
@@ -30,13 +29,13 @@
             android:orientation="horizontal"
             android:gravity="center_vertical|end"
             >
+
             <TextView
                 android:id="@+id/name_weight"
+                style="@style/text_name_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_name_left"
-                android:text="weight"
-                />
+                android:text="@string/weight_hint" />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,13 +56,13 @@
             android:orientation="horizontal"
             android:gravity="center_vertical|end"
             >
+
             <TextView
                 android:id="@+id/name_height"
+                style="@style/text_name_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_name_left"
-                android:text="height"
-                />
+                android:text="@string/height_hint" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
@@ -85,13 +84,13 @@
             android:orientation="horizontal"
             android:gravity="center_vertical|end"
             >
+
             <TextView
                 android:id="@+id/name_result"
+                style="@style/text_name_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_name_left"
-                android:text="result"
-                />
+                android:text="@string/bmi_result_hint" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_result"
                 android:layout_width="wrap_content"
@@ -116,13 +115,13 @@
             android:orientation="horizontal"
             android:gravity="center_vertical|end"
             >
+
             <TextView
                 android:id="@+id/name_category"
+                style="@style/text_name_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/text_name_left"
-                android:text="category"
-                />
+                android:text="@string/bmi_category_hint" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_category"
                 android:layout_width="wrap_content"
@@ -142,13 +141,13 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </LinearLayout>
+
     <Button
         android:id="@+id/button_calculate"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/button_margin_top"
-        style="@style/Widget.AppCompat.Button"
-        android:textSize="@dimen/button_textsize"
-        android:text="Calculate"
-        />
+        android:text="@string/calculate"
+        android:textSize="@dimen/button_textsize" />
 </LinearLayout>
