@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <!-- change android:text -->
+    <TextView
+        android:id="@+id/top_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/app_title_textsize"
+        android:text="BMI APP"
+        />
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            >
+            <TextView
+                android:id="@+id/name_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_name_left"
+                android:text="weight"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_weight"
+                    android:layout_width="@dimen/inputbox_width"
+                    android:layout_height="@dimen/text_input_height"
+                    android:inputType="numberDecimal"
+                    style="@style/input_box_editText"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            >
+            <TextView
+                android:id="@+id/name_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_name_left"
+                android:text="height"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_height"
+                    android:layout_width="@dimen/inputbox_width"
+                    android:layout_height="@dimen/text_input_height"
+                    style="@style/input_box_editText"
+                    android:inputType="numberDecimal"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            >
+            <TextView
+                android:id="@+id/name_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_name_left"
+                android:text="result"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                style="@style/input_box"
+                app:placeholderText="test">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="@dimen/inputbox_width"
+                    android:focusable="false"
+                    android:hint="wor"
+                    android:background="@color/gray"
+                    style="@style/output_text"
+                    android:layout_height="@dimen/text_input_height" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            >
+            <TextView
+                android:id="@+id/name_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_name_left"
+                android:text="category"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                style="@style/input_box"
+                app:placeholderText="test">
+
+                <!-- use hint to display text in text input -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="@dimen/inputbox_width"
+                    android:focusable="false"
+                    android:layout_height="@dimen/text_input_height"
+                    style="@style/output_text"
+                    android:background="@color/green"
+                    android:hint="hello"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_margin_top"
+        style="@style/Widget.AppCompat.Button"
+        android:textSize="@dimen/button_textsize"
+        android:text="Calculate"
+        />
+</LinearLayout>

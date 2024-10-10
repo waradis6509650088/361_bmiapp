@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_title_textsize">50sp</dimen>
+    <dimen name="body_name_margin">30dp</dimen>
+    <dimen name="layout_input_margin_start">80dp</dimen>
+    <dimen name="button_margin_top">30dp</dimen>
+    <dimen name="body_margin_top">15dp</dimen>
+    <dimen name="text_input_height">80dp</dimen>
+    <dimen name="inputbox_width">150dp</dimen>
+    <dimen name="button_textsize">25sp</dimen>
+    <dimen name="output_text_size">30sp</dimen>
+    <dimen name="left_name_text_size">30sp</dimen>
+</resources>

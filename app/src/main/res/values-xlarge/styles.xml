@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text_name_left">
+        <item name="android:textSize">@dimen/left_name_text_size</item>
+    </style>
+    <style name="output_text">
+        <item name="android:textSize">@dimen/output_text_size</item>
+    </style>
+    <style name="input_box">
+        <item name="android:layout_marginStart">@dimen/layout_input_margin_start</item>
+        <item name="android:focusable">false</item>
+    </style>
+    <style name="input_box_editText">
+        <item name="android:layout_marginStart">@dimen/layout_input_margin_start</item>
+    </style>
+
+</resources>
