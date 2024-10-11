@@ -10,7 +10,7 @@
     <string name="height_zero">Height must not be 0.</string>
     <string name="invalid_input">Invalid Input</string>
     <string name="underweight">Underweight</string>
-    <string name="normal_weight">Normal weight</string>
+    <string name="normal_weight">Normal</string>
     <string name="overweight">Overweight</string>
     <string name="obesity">Obesity</string>
 </resources>

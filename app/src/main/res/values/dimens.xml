@@ -6,8 +6,8 @@
     <dimen name="button_margin_top">20dp</dimen>
     <dimen name="body_margin_top">15dp</dimen>
     <dimen name="text_input_height">60dp</dimen>
-    <dimen name="inputbox_width">180dp</dimen>
+    <dimen name="inputbox_width">170dp</dimen>
     <dimen name="button_textsize">20sp</dimen>
     <dimen name="output_text_size">20sp</dimen>
-    <dimen name="left_name_text_size">25sp</dimen>
+    <dimen name="left_name_text_size">20sp</dimen>
 </resources>
