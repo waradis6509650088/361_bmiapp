@@ -53,15 +53,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
             try {
-                float weight = Float.parseFloat(weightStr);
-                float height = Float.parseFloat(heightStr) / 100;
+                double weight = Double.parseDouble(weightStr);
+                double height = Double.parseDouble(heightStr) / 100;
 
                 if (height <= 0) {
                     Toast.makeText(MainActivity.this, getString(R.string.height_zero), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                float bmi = weight / (height * height);
+                double bmi = weight / (height * height);
 
                 String formattedWeight = formatter.format(weight);
                 String formattedHeight = formatter.format(height * 100);
