@@ -1,6 +1,8 @@
 package com.example.bmi_app;
 
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -13,10 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.Locale;
+import java.text.DecimalFormat;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+    DecimalFormat formatter = new DecimalFormat("#,###.##");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,15 +34,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        final TextInputEditText weightInput = findViewById(R.id.input_weight);
-        final TextInputEditText heightInput = findViewById(R.id.input_height);
-        final TextInputEditText bmiOutput = findViewById(R.id.output_bmi);
-        final TextInputEditText resultTextView = findViewById(R.id.result);
-        final Button calculateButton = findViewById(R.id.button_calculate);
+        TextInputEditText weightInput = findViewById(R.id.input_weight);
+        weightInput.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(8, 2)});
+        TextInputEditText heightInput = findViewById(R.id.input_height);
+        heightInput.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(8, 2)});
+
+        TextInputEditText bmiOutput = findViewById(R.id.output_bmi);
+        TextInputEditText resultTextView = findViewById(R.id.result);
+        Button calculateButton = findViewById(R.id.button_calculate);
 
         calculateButton.setOnClickListener(v -> {
-            String weightStr = Objects.requireNonNull(weightInput.getText()).toString();
-            String heightStr = Objects.requireNonNull(heightInput.getText()).toString();
+            String weightStr = Objects.requireNonNull(weightInput.getText()).toString().replace(",","");
+            String heightStr = Objects.requireNonNull(heightInput.getText()).toString().replace(",","");
 
             if (weightStr.isEmpty() || heightStr.isEmpty()) {
                 Toast.makeText(MainActivity.this, getString(R.string.empty_input), Toast.LENGTH_SHORT).show();
@@ -54,9 +62,15 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 float bmi = weight / (height * height);
-                bmiOutput.setText(String.format(Locale.getDefault(), "%.2f", bmi));
 
-                // Determine BMI category and set message and color
+                String formattedWeight = formatter.format(weight);
+                String formattedHeight = formatter.format(height * 100);
+                String formattedBmi = formatter.format(bmi);
+
+                weightInput.setText(formattedWeight);
+                heightInput.setText(formattedHeight);
+                bmiOutput.setText(formattedBmi);
+
                 String resultMessage;
                 int backgroundColor;
 
@@ -82,5 +96,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private class DecimalDigitsInputFilter implements InputFilter {
+        private Pattern mPattern;
+        DecimalDigitsInputFilter(int digits, int digitsAfterZero) {
+            mPattern = Pattern.compile("[0-9]{0," + (digits - 1) + "}+((\\.[0-9]{0," + (digitsAfterZero - 1) +
+                    "})?)||(\\.)?");
+        }
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            Matcher matcher = mPattern.matcher(dest);
+            if (!matcher.matches())
+                return "";
+            return null;
+        }
     }
 }
