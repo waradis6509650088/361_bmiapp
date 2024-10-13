@@ -2,4 +2,5 @@
 <resources>
     <dimen name="layout_input_margin_start">140dp</dimen>
     <dimen name="inputbox_width">180dp</dimen>
+    <dimen name="button_margin_top">13dp</dimen>
 </resources>
