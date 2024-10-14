@@ -1,9 +1,11 @@
 package com.example.bmi_app;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -98,6 +100,43 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+
+        TextView topText = findViewById(R.id.top_text);
+        TextView nameWeight = findViewById(R.id.name_weight);
+        TextInputEditText inputWeight = findViewById(R.id.input_weight);
+        TextView nameHeight = findViewById(R.id.name_height);
+        TextInputEditText inputHeight = findViewById(R.id.input_height);
+        TextView nameResult = findViewById(R.id.name_result);
+        TextInputEditText outputBmi = findViewById(R.id.output_bmi);
+        TextView nameCategory = findViewById(R.id.name_category);
+        TextInputEditText resultCategory = findViewById(R.id.result);
+        Button calculateButton = findViewById(R.id.button_calculate);
+
+
+        float fontScale = newConfig.fontScale;
+
+
+        float fontSizeLarge = 30 * fontScale;
+        float fontSizeNormal = 20 * fontScale;
+
+
+        topText.setTextSize(fontSizeLarge);
+        nameWeight.setTextSize(fontSizeNormal);
+        inputWeight.setTextSize(fontSizeNormal);
+        nameHeight.setTextSize(fontSizeNormal);
+        inputHeight.setTextSize(fontSizeNormal);
+        nameResult.setTextSize(fontSizeNormal);
+        outputBmi.setTextSize(fontSizeNormal);
+        nameCategory.setTextSize(fontSizeNormal);
+        resultCategory.setTextSize(fontSizeNormal);
+        calculateButton.setTextSize(fontSizeNormal);
+    }
+
+
     private class DecimalDigitsInputFilter implements InputFilter {
         private Pattern mPattern;
         DecimalDigitsInputFilter(int digits, int digitsAfterZero) {
@@ -112,4 +151,5 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
 }
