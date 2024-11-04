@@ -14,4 +14,9 @@
     <string name="overweight">Overweight</string>
     <string name="obesity">Obesity</string>
     <string name="date">Date</string>
+    <string name="col_trans_id_str">id</string>
+    <string name="col_name_str">name</string>
+    <string name="col_msg_str">msg</string>
+    <string name="col_amt_str">amt</string>
+
 </resources>

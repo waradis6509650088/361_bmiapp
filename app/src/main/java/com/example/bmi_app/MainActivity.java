@@ -103,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton historyButton = findViewById(R.id.history);
         historyButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, )
+            Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+            startActivity(intent);
         });
     }
 
