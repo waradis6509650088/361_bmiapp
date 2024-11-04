@@ -20,12 +20,21 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     DecimalFormat formatter = new DecimalFormat("#,###.##");
+    private final DatabaseHelper dbHelper;
+
+    public MainActivity(DatabaseHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,10 +105,9 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText(resultMessage);
                 resultTextView.setBackgroundColor(backgroundColor);
 
-                String currentDate = new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date());
-                DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+                String currentDate = getCurrentBuddhistEraDate();
 
-                db.insertBMIRecord(currentDate, weight, height * 100, bmi, resultMessage);
+                dbHelper.insertBMIRecord(currentDate, weight, height * 100, bmi, resultMessage);
 
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
@@ -149,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
         calculateButton.setTextSize(fontSizeNormal);
     }
 
-
     private class DecimalDigitsInputFilter implements InputFilter {
         private Pattern mPattern;
         DecimalDigitsInputFilter(int digits, int digitsAfterZero) {
@@ -165,4 +172,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private String getCurrentBuddhistEraDate() {
+        Calendar calendar = Calendar.getInstance();
+        int gregorianYear = calendar.get(Calendar.YEAR);
+        int buddhistYear = gregorianYear + 543;
+        calendar.set(Calendar.YEAR, buddhistYear);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        return dateFormat.format(calendar.getTime());
+    }
 }
