@@ -5,11 +5,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "bmi_data.db";
     private static final int DATABASE_VERSION = 1;
+
     private static final String TABLE_NAME  = "bmi_records";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_DATE = "date";
@@ -18,8 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_BMI = "bmi";
     private static final String COLUMN_RESULT = "result";
 
-    public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -45,9 +44,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_DATE, date);
         values.put(COLUMN_WEIGHT, weight);
+        values.put(COLUMN_HEIGHT, height);
         values.put(COLUMN_BMI, bmi);
         values.put(COLUMN_RESULT, result);
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
+
+
 }
