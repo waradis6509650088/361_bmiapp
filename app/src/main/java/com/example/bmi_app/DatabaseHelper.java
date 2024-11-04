@@ -78,9 +78,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     double bmi = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_BMI));
                     String result = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_RESULT));
 
-
+                    BMIRecord record = new BMIRecord(id, date, weight, height, bmi, result);
+                    bmiRecords.add(record);
                 } while (cursor.moveToNext());
             }
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "Error fetching records", e);
+            Toast.makeText(context, "Error fetching records", Toast.LENGTH_SHORT).show();
         }
+
+        return bmiRecords;
     }
 }
