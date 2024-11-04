@@ -96,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText(resultMessage);
                 resultTextView.setBackgroundColor(backgroundColor);
 
+                String currentDate = new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date());
+                DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+
+                db.insertBMIRecord(currentDate, weight, height * 100, bmi, resultMessage);
+
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
