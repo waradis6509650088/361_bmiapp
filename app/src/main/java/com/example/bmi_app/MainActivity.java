@@ -1,10 +1,12 @@
 package com.example.bmi_app;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
+        });
+
+        ImageButton historyButton = findViewById(R.id.history);
+        historyButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, )
         });
     }
 
