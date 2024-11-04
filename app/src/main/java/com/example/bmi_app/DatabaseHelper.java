@@ -3,7 +3,6 @@ package com.example.bmi_app;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -49,16 +48,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void insertBMIRecord(String date, double weight, double height, double bmi, String result) {
+
         try (SQLiteDatabase db = this.getWritableDatabase()) {
-            ContentValues values = new ContentValues();
-            values.put(COLUMN_DATE, date);
-            values.put(COLUMN_WEIGHT, weight);
-            values.put(COLUMN_HEIGHT, height);
-            values.put(COLUMN_BMI, bmi);
-            values.put(COLUMN_RESULT, result);
-            db.insert(TABLE_NAME, null, values);
-        } catch (SQLException e) {
-            Toast.makeText(context, "Error inserting BMI record", Toast.LENGTH_SHORT).show();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("date", date);
+            contentValues.put("weight", weight);
+            contentValues.put("height", height);
+            contentValues.put("bmi", bmi);
+            contentValues.put("result", result);
+
+            long resultInsert = db.insert("BMIRecords", null, contentValues);
+            if (resultInsert == -1) {
+                Log.e("DatabaseHelper", "Insert failed");
+            }
+        } catch (Exception e) {
             Log.e("DatabaseHelper", "Error inserting BMI record", e);
         }
     }

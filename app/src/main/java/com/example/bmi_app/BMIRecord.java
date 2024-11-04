@@ -1,5 +1,7 @@
 package com.example.bmi_app;
 
+import java.util.Locale;
+
 public class BMIRecord {
     private int id;
     private String date;
@@ -39,5 +41,16 @@ public class BMIRecord {
 
     public String getResult() {
         return result;
+    }
+    public String getFormattedWeight() {
+        return String.format(Locale.US, "%.2f", weight);
+    }
+
+    public String getFormattedHeight() {
+        return String.format(Locale.US, "%.2f", height);
+    }
+
+    public String getFormattedBmi() {
+        return String.format(Locale.US, "%.2f", bmi);
     }
 }
