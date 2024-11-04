@@ -13,4 +13,5 @@
     <string name="normal_weight">ปกติ</string>
     <string name="overweight">น้ำหนักเกิน</string>
     <string name="obesity">โรคอ้วน</string>
+    <string name="date">วันที่</string>
 </resources>

@@ -13,4 +13,5 @@
     <string name="normal_weight">Normal</string>
     <string name="overweight">Overweight</string>
     <string name="obesity">Obesity</string>
+    <string name="date">Date</string>
 </resources>

@@ -154,4 +154,12 @@
         android:layout_marginTop="@dimen/button_margin_top"
         android:text="@string/calculate"
         android:textSize="@dimen/button_textsize" />
+
+    <ImageButton
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_recent_history"
+        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
 </LinearLayout>
