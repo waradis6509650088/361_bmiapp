@@ -15,7 +15,7 @@
         <activity
             android:name=".ColumnActivity"
             android:configChanges="locale|fontScale|orientation"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:configChanges="locale|fontScale|orientation"
