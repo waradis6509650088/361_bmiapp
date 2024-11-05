@@ -8,4 +8,5 @@
     <color name="red_underweight">#ff9696</color>
     <color name="red_overweight">#F44336</color>
     <color name="hoki">#607D8B</color>
+    <color name="textColorPrimary">#000000</color>
 </resources>
