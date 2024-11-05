@@ -29,11 +29,6 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     DecimalFormat formatter = new DecimalFormat("#,###.##");
-    private final DatabaseHelper dbHelper;
-
-    public MainActivity(DatabaseHelper dbHelper) {
-        this.dbHelper = dbHelper;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText(resultMessage);
                 resultTextView.setBackgroundColor(backgroundColor);
 
-                String currentDate = getCurrentBuddhistEraDate();
+                //String currentDate = getCurrentBuddhistEraDate();
 
-                dbHelper.insertBMIRecord(currentDate, weight, height * 100, bmi, resultMessage);
 
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
