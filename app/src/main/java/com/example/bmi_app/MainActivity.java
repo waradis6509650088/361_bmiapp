@@ -1,5 +1,14 @@
 package com.example.bmi_app;
 
+import static com.example.bmi_app.Constants.BMI;
+import static com.example.bmi_app.Constants.DATABASE_NAME;
+import static com.example.bmi_app.Constants.DATABASE_VERSION;
+import static com.example.bmi_app.Constants.DATE;
+import static com.example.bmi_app.Constants.HEIGHT;
+import static com.example.bmi_app.Constants.RESULT;
+import static com.example.bmi_app.Constants.TABLE_NAME;
+import static com.example.bmi_app.Constants.WEIGHT;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -9,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -100,9 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText(resultMessage);
                 resultTextView.setBackgroundColor(backgroundColor);
 
-                //String currentDate = getCurrentBuddhistEraDate();
-
-
+                addBMI();
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
@@ -174,5 +183,56 @@ public class MainActivity extends AppCompatActivity {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         return dateFormat.format(calendar.getTime());
+    }
+    private void addBMI() {
+        TextInputEditText weightInput = findViewById(R.id.input_weight);
+        TextInputEditText heightInput = findViewById(R.id.input_height);
+        TextInputEditText bmiOutput = findViewById(R.id.output_bmi);
+        TextInputEditText resultTextView = findViewById(R.id.result);
+
+        // Get the current values from input fields
+        String weightStr = Objects.requireNonNull(weightInput.getText()).toString().replace(",", "");
+        String heightStr = Objects.requireNonNull(heightInput.getText()).toString().replace(",", "");
+        String bmiStr = Objects.requireNonNull(bmiOutput.getText()).toString().replace(",", "");
+        String result = Objects.requireNonNull(resultTextView.getText()).toString();
+
+        // Get current date in Buddhist Era
+        String currentDate = getCurrentBuddhistEraDate();
+
+        try {
+            // Convert strings to appropriate data types
+            double weight = Double.parseDouble(weightStr);
+            double height = Double.parseDouble(heightStr);
+            double bmi = Double.parseDouble(bmiStr);
+
+            // Create database helper instance
+            BMIData dbHelper = new BMIData(this, DATABASE_NAME, null, DATABASE_VERSION);
+
+            // Get writable database
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            // Create ContentValues object to hold the data
+            ContentValues values = new ContentValues();
+            values.put(DATE, currentDate);
+            values.put(WEIGHT, weight);
+            values.put(HEIGHT, height);
+            values.put(BMI, bmi);
+            values.put(RESULT, result);
+
+            // Insert the data into the database
+            long newRowId = db.insert(TABLE_NAME, null, values);
+
+            // Check if insertion was successful
+            if (newRowId != -1) {
+                Toast.makeText(this, getString(R.string.save_success), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.save_failed), Toast.LENGTH_SHORT).show();
+            }
+
+            // Close the database connection
+            db.close();
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
+        }
     }
 }
