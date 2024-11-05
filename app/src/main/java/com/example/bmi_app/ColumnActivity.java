@@ -5,6 +5,7 @@ import static com.example.bmi_app.Constants.*;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class ColumnActivity extends AppCompatActivity {
@@ -73,6 +75,7 @@ public class ColumnActivity extends AppCompatActivity {
 
     private void loadBMIData() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
+        bmiList.clear();
         try {
             // Query to select all records, ordered by date descending
             String query = "SELECT * FROM " + TABLE_NAME + " ORDER BY date DESC";
@@ -101,8 +104,9 @@ public class ColumnActivity extends AppCompatActivity {
                 } while (cursor.moveToNext());
             }
             cursor.close();
+            Collections.reverse(bmiList);
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("ColumnActivity", "Error loading BMI data", e);
         } finally {
             db.close();
         }
