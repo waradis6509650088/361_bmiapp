@@ -9,6 +9,7 @@ import static com.example.bmi_app.Constants.RESULT;
 import static com.example.bmi_app.Constants.TABLE_NAME;
 import static com.example.bmi_app.Constants.WEIGHT;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -39,6 +40,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String CATEGORY_UNDERWEIGHT = "underweight";
+    private static final String CATEGORY_NORMAL = "normal";
+    private static final String CATEGORY_OVERWEIGHT = "overweight";
+    private static final String CATEGORY_OBESE = "obese";
     DecimalFormat formatter = new DecimalFormat("#,###.##");
 
     @Override
@@ -90,20 +95,25 @@ public class MainActivity extends AppCompatActivity {
                 heightInput.setText(formattedHeight);
                 bmiOutput.setText(formattedBmi);
 
+                String categoryKey;
                 String resultMessage;
                 int backgroundColor;
 
 
                 if (bmi < 18.5) {
+                    categoryKey = CATEGORY_UNDERWEIGHT;
                     resultMessage = getString(R.string.underweight);
                     backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.red_underweight);
                 } else if (bmi < 24.9) {
+                    categoryKey = CATEGORY_NORMAL;
                     resultMessage = getString(R.string.normal_weight);
                     backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.green);
                 } else if (bmi < 29.9) {
+                    categoryKey = CATEGORY_OVERWEIGHT;
                     resultMessage = getString(R.string.overweight);
                     backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.yellow);
                 } else {
+                    categoryKey = CATEGORY_OBESE;
                     resultMessage = getString(R.string.obesity);
                     backgroundColor = ContextCompat.getColor(MainActivity.this, R.color.red_overweight);
                 }
@@ -111,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 resultTextView.setText(resultMessage);
                 resultTextView.setBackgroundColor(backgroundColor);
 
-                addBMI();
+                addBMI(categoryKey);
             } catch (NumberFormatException e) {
                 Toast.makeText(MainActivity.this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
             }
@@ -184,17 +194,17 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         return dateFormat.format(calendar.getTime());
     }
-    private void addBMI() {
+    private void addBMI(String categoryKey) {
         TextInputEditText weightInput = findViewById(R.id.input_weight);
         TextInputEditText heightInput = findViewById(R.id.input_height);
         TextInputEditText bmiOutput = findViewById(R.id.output_bmi);
-        TextInputEditText resultTextView = findViewById(R.id.result);
+        //TextInputEditText resultTextView = findViewById(R.id.result);
 
         // Get the current values from input fields
         String weightStr = Objects.requireNonNull(weightInput.getText()).toString().replace(",", "");
         String heightStr = Objects.requireNonNull(heightInput.getText()).toString().replace(",", "");
         String bmiStr = Objects.requireNonNull(bmiOutput.getText()).toString().replace(",", "");
-        String result = Objects.requireNonNull(resultTextView.getText()).toString();
+        //String result = Objects.requireNonNull(resultTextView.getText()).toString();
 
         // Get current date in Buddhist Era
         String currentDate = getCurrentBuddhistEraDate();
@@ -217,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
             values.put(WEIGHT, weight);
             values.put(HEIGHT, height);
             values.put(BMI, bmi);
-            values.put(RESULT, result);
+            values.put(RESULT, categoryKey);
 
             // Insert the data into the database
             long newRowId = db.insert(TABLE_NAME, null, values);
@@ -233,6 +243,20 @@ public class MainActivity extends AppCompatActivity {
             db.close();
         } catch (NumberFormatException e) {
             Toast.makeText(this, getString(R.string.invalid_input), Toast.LENGTH_SHORT).show();
+        }
+    }
+    public static String getLocalizedResult(Context context, String categoryKey) {
+        switch (categoryKey) {
+            case CATEGORY_UNDERWEIGHT:
+                return context.getString(R.string.underweight);
+            case CATEGORY_NORMAL:
+                return context.getString(R.string.normal_weight);
+            case CATEGORY_OVERWEIGHT:
+                return context.getString(R.string.overweight);
+            case CATEGORY_OBESE:
+                return context.getString(R.string.obesity);
+            default:
+                return "";
         }
     }
 }
