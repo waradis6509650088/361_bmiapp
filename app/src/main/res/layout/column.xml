@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:gravity="center"
-        android:textColor="@color/textColorPrimary"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/col_date" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
         android:gravity="center"
-        android:textColor="@color/textColorPrimary"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/col_weight" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
         android:gravity="center"
-        android:textColor="@color/textColorPrimary"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/col_height" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
         android:gravity="center"
-        android:textColor="@color/textColorPrimary"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/col_bmi" />
 
     <TextView
@@ -47,6 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:gravity="center"
-        android:textColor="@color/textColorPrimary"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/col_result" />
 </LinearLayout>

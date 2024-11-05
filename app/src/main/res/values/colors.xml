@@ -9,4 +9,7 @@
     <color name="red_overweight">#F44336</color>
     <color name="hoki">#607D8B</color>
     <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="header_row">#EEEEEE</color>
+    <color name="divider">#CCCCCC</color>
 </resources>
