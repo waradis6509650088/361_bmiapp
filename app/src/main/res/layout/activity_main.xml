@@ -14,7 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        app:srcCompat="@android:drawable/ic_menu_recent_history"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/history_button"
+        app:tint="@null"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     <!-- Main Content Container -->
