@@ -20,4 +20,5 @@
     <string name="col_result">อยู่ในเกณฑ์</string>
     <string name="save_success">บันทึกสำเร็จ</string>
     <string name="save_failed">บันทึกไม่สำเร็จ</string>
+    <string name="bmi_history_title">ประวัติค่าดัชนีมวลกาย</string>
 </resources>
