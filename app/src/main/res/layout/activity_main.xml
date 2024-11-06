@@ -158,6 +158,7 @@
                         android:layout_height="@dimen/text_input_height"
                         android:background="@color/gray"
                         android:focusable="false"
+                        android:textColor="@color/black"
                         tools:ignore="TextContrastCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>

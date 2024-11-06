@@ -3,4 +3,5 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="textColorSecondary">#BDBDBD</color>
     <color name="header_row">#111111</color>
+    <color name="black">#FF000000</color>
 </resources>
