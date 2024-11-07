@@ -13,4 +13,12 @@
     <string name="normal_weight">Normal</string>
     <string name="overweight">Overweight</string>
     <string name="obesity">Obesity</string>
+    <string name="col_date">Date</string>
+    <string name="col_weight">Weight</string>
+    <string name="col_height">Height</string>
+    <string name="col_bmi">BMI</string>
+    <string name="col_result">Result</string>
+    <string name="save_success">Data saved successfully</string>
+    <string name="save_failed">Failed to save data</string>
+    <string name="bmi_history_title">Body Mass Index History</string>
 </resources>

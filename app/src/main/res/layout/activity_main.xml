@@ -1,157 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/top_text"
-        android:layout_width="match_parent"
+    <!-- History Button at top right -->
+    <ImageButton
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/bmi_title"
-        android:textSize="@dimen/app_title_textsize" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/history_button"
+        app:tint="@null"
+        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
+    <!-- Main Content Container -->
     <LinearLayout
-        android:id="@+id/body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        >
-        <LinearLayout
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/top_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
-            >
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/bmi_title"
+            android:textSize="@dimen/app_title_textsize" />
 
-            <TextView
-                android:id="@+id/name_weight"
-                style="@style/text_name_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/weight_hint" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_weight"
-                    style="@style/input_box_editText"
-                    android:layout_width="@dimen/inputbox_width"
-                    android:layout_height="@dimen/text_input_height"
-                    android:inputType="numberDecimal"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/body"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
-            >
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/name_height"
-                style="@style/text_name_left"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/height_hint" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical|end">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/name_weight"
+                    style="@style/text_name_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight_hint" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_weight"
+                        style="@style/input_box_editText"
+                        android:layout_width="@dimen/inputbox_width"
+                        android:layout_height="@dimen/text_input_height"
+                        android:inputType="numberDecimal"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Rest of your existing LinearLayouts remain the same -->
+            <!-- Copy all your existing layout content here -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:orientation="horizontal"
+                android:gravity="center_vertical|end">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_height"
-                    style="@style/input_box_editText"
-                    android:layout_width="@dimen/inputbox_width"
-                    android:layout_height="@dimen/text_input_height"
-                    android:inputType="numberDecimal"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/name_height"
+                    style="@style/text_name_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height_hint" />
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_height"
+                        style="@style/input_box_editText"
+                        android:layout_width="@dimen/inputbox_width"
+                        android:layout_height="@dimen/text_input_height"
+                        android:inputType="numberDecimal"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|end">
+
+                <TextView
+                    android:id="@+id/name_result"
+                    style="@style/text_name_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bmi_result_hint" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    style="@style/input_box"
+                    app:placeholderText="test">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/output_bmi"
+                        style="@style/output_text"
+                        android:layout_width="@dimen/inputbox_width"
+                        android:layout_height="@dimen/text_input_height"
+                        android:background="@color/gray"
+                        android:focusable="false"
+                        android:textColor="@color/hoki"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|end">
+
+                <TextView
+                    android:id="@+id/name_category"
+                    style="@style/text_name_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bmi_category_hint" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    style="@style/input_box"
+                    app:placeholderText="test">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/result"
+                        style="@style/output_text"
+                        android:layout_width="@dimen/inputbox_width"
+                        android:layout_height="@dimen/text_input_height"
+                        android:background="@color/gray"
+                        android:focusable="false"
+                        android:textColor="@color/black"
+                        tools:ignore="TextContrastCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <Button
+            android:id="@+id/button_calculate"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
-            >
+            android:layout_marginTop="@dimen/button_margin_top"
+            android:text="@string/calculate"
+            android:textSize="@dimen/button_textsize" />
 
-            <TextView
-                android:id="@+id/name_result"
-                style="@style/text_name_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bmi_result_hint" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                style="@style/input_box"
-                app:placeholderText="test">
-
-                <!-- use hint to display text in text input -->
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/output_bmi"
-                    style="@style/output_text"
-                    android:layout_width="@dimen/inputbox_width"
-                    android:layout_height="@dimen/text_input_height"
-                    android:background="@color/gray"
-                    android:focusable="false"
-                    android:textColor="@color/hoki"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|end"
-            >
-
-            <TextView
-                android:id="@+id/name_category"
-                style="@style/text_name_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bmi_category_hint" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                style="@style/input_box"
-                app:placeholderText="test">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/result"
-                    style="@style/output_text"
-                    android:layout_width="@dimen/inputbox_width"
-                    android:layout_height="@dimen/text_input_height"
-                    android:background="@color/gray"
-                    android:focusable="false"
-                    tools:ignore="TextContrastCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button_calculate"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin_top"
-        android:text="@string/calculate"
-        android:textSize="@dimen/button_textsize" />
-</LinearLayout>
+</RelativeLayout>
